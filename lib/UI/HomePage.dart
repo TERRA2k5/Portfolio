@@ -94,22 +94,18 @@ class _HomepageState extends State<Homepage> {
               ),
             ),
 
-            _buildLinks(context), // links
+            _buildLinks(context),
 
             _buildAbout(context),
-            const SliverToBoxAdapter(
-                child: Padding(
-              padding: EdgeInsets.only(left: 8, top: 16, bottom: 8),
-              child: Text(
-                'Skills',
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 25,
-                    color: Colors.white),
-              ),
-            )),
 
-            _buildSkills(context), // skills
+            _buildHeading(context, 'Skills'),
+
+            _buildSkills(),
+
+            _buildHeading(context, 'Education'),
+
+            // _buildEducation(context),
+
 
             const SliverToBoxAdapter(
               child: SizedBox(
@@ -122,76 +118,91 @@ class _HomepageState extends State<Homepage> {
     );
   }
 
+  Widget _buildHeading(BuildContext context, String head) {
+    return SliverToBoxAdapter(
+        child: Padding(
+          padding: const EdgeInsets.only(left: 8, top: 16, bottom: 8),
+          child: Text(
+            head,
+            style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 25,
+                color: Colors.white),
+          ),
+        ));
+  }
+
   Widget _buildLinks(BuildContext context) {
     return SliverToBoxAdapter(
         child: Row(
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 16),
-          child: Align(
-            alignment: Alignment.centerLeft,
-            child: SizedBox(
-              height: 25,
-              width: 25,
-              child: InkWell(
-                onTap: () {
-                  _launchUrl('https://github.com/TERRA2k5');
-                },
-                child: Image.asset('images/github.png'),
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 16),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: SizedBox(
+                  height: 25,
+                  width: 25,
+                  child: InkWell(
+                    onTap: () {
+                      _launchUrl('https://github.com/TERRA2k5');
+                    },
+                    child: Image.asset('images/github.png'),
+                  ),
+                ),
               ),
             ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 16),
-          child: Align(
-            alignment: Alignment.centerLeft,
-            child: SizedBox(
-              height: 25,
-              width: 25,
-              child: InkWell(
-                onTap: () {
-                  _launchUrl('https://linkedin.com/in/aryan-anand-8649a227b');
-                },
-                child: Image.asset('images/linkedin.png'),
+            Padding(
+              padding: const EdgeInsets.only(left: 16),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: SizedBox(
+                  height: 25,
+                  width: 25,
+                  child: InkWell(
+                    onTap: () {
+                      _launchUrl(
+                          'https://linkedin.com/in/aryan-anand-8649a227b');
+                    },
+                    child: Image.asset('images/linkedin.png'),
+                  ),
+                ),
               ),
             ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 16),
-          child: Align(
-            alignment: Alignment.centerLeft,
-            child: SizedBox(
-              height: 25,
-              width: 25,
-              child: InkWell(
-                onTap: () {
-                  _launchUrl('https://www.instagram.com/aryan___2k5');
-                },
-                child: Image.asset('images/instagram.png'),
+            Padding(
+              padding: const EdgeInsets.only(left: 16),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: SizedBox(
+                  height: 25,
+                  width: 25,
+                  child: InkWell(
+                    onTap: () {
+                      _launchUrl('https://www.instagram.com/aryan___2k5');
+                    },
+                    child: Image.asset('images/instagram.png'),
+                  ),
+                ),
               ),
             ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 16),
-          child: Align(
-            alignment: Alignment.centerLeft,
-            child: SizedBox(
-              height: 25,
-              width: 25,
-              child: InkWell(
-                onTap: () {
-                  _launchUrl('https://x.com/TERRA2k5');
-                },
-                child: Image.asset('images/twitter.png'),
+            Padding(
+              padding: const EdgeInsets.only(left: 16),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: SizedBox(
+                  height: 25,
+                  width: 25,
+                  child: InkWell(
+                    onTap: () {
+                      _launchUrl('https://x.com/TERRA2k5');
+                    },
+                    child: Image.asset('images/twitter.png'),
+                  ),
+                ),
               ),
             ),
-          ),
-        ),
-      ],
-    ));
+          ],
+        ));
   }
 
   Widget _buildAbout(BuildContext context) {
@@ -267,7 +278,7 @@ class _HomepageState extends State<Homepage> {
     );
   }
 
-  Widget _buildSkills(BuildContext context) {
+  Widget _buildSkills() {
     return SliverToBoxAdapter(
       child: Wrap(
         children: [
@@ -355,4 +366,10 @@ class _HomepageState extends State<Homepage> {
       ),
     );
   }
+
+  // Widget _buildEducation(BuildContext context) {
+  //   return SliverToBoxAdapter(
+  //     child:,
+  //   );
+  // }
 }
