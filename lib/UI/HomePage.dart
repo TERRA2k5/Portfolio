@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/UI/contact.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Homepage extends StatefulWidget {
@@ -45,8 +46,8 @@ class _HomepageState extends State<Homepage> {
           slivers: [
             // SliverToBoxAdapter(child: SizedBox(height: 20,),),
             const SliverAppBar(
-              pinned: true,
-              floating: true,
+              pinned: false,
+              floating: false,
               expandedHeight: 250,
               collapsedHeight: 80,
               backgroundColor: Colors.black,
@@ -58,8 +59,7 @@ class _HomepageState extends State<Homepage> {
                     CircleAvatar(
                       radius: 40,
                       backgroundColor: Colors.white,
-                      backgroundImage: AssetImage(
-                          'images/aryan.jpg'), // Replace with your image
+                      backgroundImage: AssetImage('images/aryan.jpg'),
                     ),
                     SizedBox(width: 12),
                     Column(
@@ -100,12 +100,19 @@ class _HomepageState extends State<Homepage> {
 
             _buildHeading(context, 'Skills'),
 
-            _buildSkills(),
+            _buildSkills(context),
 
             _buildHeading(context, 'Education'),
 
-            // _buildEducation(context),
+            _buildEducation(
+                context,
+                'images/iitism_cover.jpg',
+                'IIT Dhanbad',
+                'Bachelor of Technology in Electronics and Communication Engineering',
+                '2023-2027'),
 
+            _buildEducation(context, 'images/dav.jpg', 'D.A.V. Public School',
+                'Class X & XII | CBSE', '2021-2023'),
 
             const SliverToBoxAdapter(
               child: SizedBox(
@@ -121,88 +128,107 @@ class _HomepageState extends State<Homepage> {
   Widget _buildHeading(BuildContext context, String head) {
     return SliverToBoxAdapter(
         child: Padding(
-          padding: const EdgeInsets.only(left: 8, top: 16, bottom: 8),
-          child: Text(
-            head,
-            style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 25,
-                color: Colors.white),
-          ),
-        ));
+      padding: const EdgeInsets.only(left: 8, top: 16, bottom: 8),
+      child: Text(
+        head,
+        style: const TextStyle(
+            fontWeight: FontWeight.bold, fontSize: 25, color: Colors.white),
+      ),
+    ));
   }
 
   Widget _buildLinks(BuildContext context) {
     return SliverToBoxAdapter(
         child: Row(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 16),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: SizedBox(
-                  height: 25,
-                  width: 25,
-                  child: InkWell(
-                    onTap: () {
-                      _launchUrl('https://github.com/TERRA2k5');
-                    },
-                    child: Image.asset('images/github.png'),
-                  ),
-                ),
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 16),
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: SizedBox(
+              height: 25,
+              width: 25,
+              child: InkWell(
+                onTap: () {
+                  _launchUrl('https://github.com/TERRA2k5');
+                },
+                child: Image.asset('images/github.png'),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 16),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: SizedBox(
-                  height: 25,
-                  width: 25,
-                  child: InkWell(
-                    onTap: () {
-                      _launchUrl(
-                          'https://linkedin.com/in/aryan-anand-8649a227b');
-                    },
-                    child: Image.asset('images/linkedin.png'),
-                  ),
-                ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 16),
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: SizedBox(
+              height: 25,
+              width: 25,
+              child: InkWell(
+                onTap: () {
+                  _launchUrl('https://linkedin.com/in/aryan-anand-8649a227b');
+                },
+                child: Image.asset('images/linkedin.png'),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 16),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: SizedBox(
-                  height: 25,
-                  width: 25,
-                  child: InkWell(
-                    onTap: () {
-                      _launchUrl('https://www.instagram.com/aryan___2k5');
-                    },
-                    child: Image.asset('images/instagram.png'),
-                  ),
-                ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 16),
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: SizedBox(
+              height: 25,
+              width: 25,
+              child: InkWell(
+                onTap: () {
+                  _launchUrl('https://www.instagram.com/aryan___2k5');
+                },
+                child: Image.asset('images/instagram.png'),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 16),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: SizedBox(
-                  height: 25,
-                  width: 25,
-                  child: InkWell(
-                    onTap: () {
-                      _launchUrl('https://x.com/TERRA2k5');
-                    },
-                    child: Image.asset('images/twitter.png'),
-                  ),
-                ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 16),
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: SizedBox(
+              height: 25,
+              width: 25,
+              child: InkWell(
+                onTap: () {
+                  _launchUrl('https://x.com/TERRA2k5');
+                },
+                child: Image.asset('images/twitter.png'),
               ),
             ),
-          ],
-        ));
+          ),
+        ),
+        const Spacer(),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16),
+          child: MaterialButton(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
+              elevation: 10,
+              color: Colors.white,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ContactMe(),
+                  ),
+                );
+
+              },
+              child: const Text(
+                'Contact Me',
+                style: TextStyle(color: Colors.black),
+              )),
+        )
+      ],
+    ));
   }
 
   Widget _buildAbout(BuildContext context) {
@@ -235,9 +261,9 @@ class _HomepageState extends State<Homepage> {
             padding: EdgeInsets.only(left: 24, bottom: 16),
             child: GestureDetector(
                 onTap: _makePhoneCall,
-                child: const Row(
+                child: Row(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                       width: 20,
                       child: Icon(
@@ -245,9 +271,14 @@ class _HomepageState extends State<Homepage> {
                         color: Colors.white,
                       ),
                     ),
-                    Text(
-                      '  6200015798',
+                    const Text(
+                      '   6200015798  ',
                       style: TextStyle(color: Colors.white, fontSize: 15),
+                    ),
+                    SizedBox(
+                      width: 15,
+                      height: 15,
+                      child: Image.asset('images/external_link.png'),
                     )
                   ],
                 )),
@@ -256,9 +287,9 @@ class _HomepageState extends State<Homepage> {
             padding: EdgeInsets.only(left: 24, bottom: 16),
             child: GestureDetector(
                 onTap: _sendEmail,
-                child: const Row(
+                child: Row(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                       width: 20,
                       child: Icon(
@@ -266,9 +297,14 @@ class _HomepageState extends State<Homepage> {
                         color: Colors.white,
                       ),
                     ),
-                    Text(
-                      '  aryananand005@gmail.com',
+                    const Text(
+                      '  aryananand005@gmail.com  ',
                       style: TextStyle(color: Colors.white, fontSize: 15),
+                    ),
+                    SizedBox(
+                      width: 15,
+                      height: 15,
+                      child: Image.asset('images/external_link.png'),
                     )
                   ],
                 )),
@@ -278,7 +314,7 @@ class _HomepageState extends State<Homepage> {
     );
   }
 
-  Widget _buildSkills() {
+  Widget _buildSkills(BuildContext context) {
     return SliverToBoxAdapter(
       child: Wrap(
         children: [
@@ -367,9 +403,70 @@ class _HomepageState extends State<Homepage> {
     );
   }
 
-  // Widget _buildEducation(BuildContext context) {
-  //   return SliverToBoxAdapter(
-  //     child:,
-  //   );
-  // }
+  Widget _buildEducation(BuildContext context, String image, String heading,
+      String body, String year) {
+    return SliverToBoxAdapter(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Card(
+          elevation: 20,
+          color: Colors.grey[900],
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: 120,
+                  width: 120,
+                  child: Image.asset(image),
+                ),
+                Expanded(
+                    //   child: Align(
+                    // alignment: Alignment.centerLeft,
+                    child: Column(
+                  children: [
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 20, top: 10),
+                        child: Text(
+                          heading,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 20, top: 10),
+                        child: Text(
+                          body,
+                          style: TextStyle(color: Colors.white, fontSize: 12),
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 20, top: 5),
+                        child: Text(
+                          year,
+                          style: TextStyle(color: Colors.white, fontSize: 12),
+                        ),
+                      ),
+                    ),
+                  ],
+                  // ),
+                ))
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }

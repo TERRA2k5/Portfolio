@@ -32,7 +32,7 @@ class _MainContainerState extends State<MainContainer> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
-        backgroundColor: Colors.black87,
+        backgroundColor: Colors.black,
         unselectedItemColor: Colors.grey,
         selectedItemColor: Colors.white,
         onTap: (index) {
