@@ -21,11 +21,11 @@ class _HomepageState extends State<Homepage> {
 
   Future<void> _makePhoneCall() async {
     final Uri callUri = Uri(scheme: 'tel', path: '6200015798');
-    if (await canLaunchUrl(callUri)) {
-      await launchUrl(callUri);
-    } else {
-      print("Could not launch call");
-    }
+    await launchUrl(callUri).catchError((error) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Could not make a phone call')),
+      );
+    });
   }
 
   Future<void> _sendEmail() async {
