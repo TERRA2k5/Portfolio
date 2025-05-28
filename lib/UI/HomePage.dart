@@ -395,7 +395,23 @@ class _HomepageState extends State<Homepage> {
             child: SizedBox(
               height: 40,
               width: 40,
+              child: Image.asset('images/python.png'),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 16, top: 8),
+            child: SizedBox(
+              height: 40,
+              width: 40,
               child: Image.asset('images/sql.png'),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 16, top: 8),
+            child: SizedBox(
+              height: 40,
+              width: 40,
+              child: Image.asset('images/postgre.png'),
             ),
           ),
         ],
